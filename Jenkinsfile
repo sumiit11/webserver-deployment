@@ -4,7 +4,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 script {
-                    sh 'ansible-playbook -i /etc/ansible/hosts deploy-web.yml'
+                    sh '/usr/bin/ansible-playbook -i /etc/ansible/hosts deploy-web.yml'
                 }
             }
         }
