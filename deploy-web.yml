@@ -1,6 +1,6 @@
 ---
 - name: Install Apache on Ubuntu
-  hosts: slave1
+  hosts: 54.243.181.96 # Replace with slave1's IP
   become: yes
   tasks:
     - name: Update apt package cache
@@ -16,7 +16,7 @@
         state: started
 
 - name: Set up Nginx web server
-  hosts: slave2
+  hosts: 100.27.68.246
   become: yes
   tasks:
     - name: Update apt cache and ensure nginx is at the latest version
@@ -29,3 +29,8 @@
         name: nginx
         state: started
         enabled: yes
+     - name: Start and enable nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes   
